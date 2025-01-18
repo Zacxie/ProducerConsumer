@@ -1,0 +1,5 @@
+rootProject.name = "ProducerConsumer"
+
+include(":producer")
+include(":common")
+include(":consumer")
