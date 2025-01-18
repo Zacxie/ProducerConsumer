@@ -1,6 +1,6 @@
 package com.assessment.producer.service;
 
-import com.assessment.consumer.dto.Message;
+import com.assessment.common.dto.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;

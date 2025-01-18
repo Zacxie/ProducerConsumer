@@ -1,6 +1,6 @@
 package com.assessment.producer.controller;
 
-import com.assessment.consumer.dto.Message;
+import com.assessment.common.dto.Message;
 import com.assessment.producer.service.MessageService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

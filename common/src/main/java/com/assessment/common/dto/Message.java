@@ -1,4 +1,4 @@
-package com.assessment.consumer.dto;
+package com.assessment.common.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
