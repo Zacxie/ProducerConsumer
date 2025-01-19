@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  producer:
+    build:
+      context: ./producer
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    container_name: producer
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/v1/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 3s
+
+  consumer:
+    build:
+      context: ./consumer
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+    container_name: consumer
+    environment:
+      - PRODUCER_URL=http://producer:8080
+    depends_on:
+      producer:
+        condition: service_healthy
+
+networks:
+  app-network:
+    driver: bridge
