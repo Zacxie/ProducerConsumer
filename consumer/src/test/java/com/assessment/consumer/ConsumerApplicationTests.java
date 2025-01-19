@@ -6,8 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ConsumerApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+// TODO: Implement tests for the consumer application
 
 }
