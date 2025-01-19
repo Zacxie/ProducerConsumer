@@ -1,11 +1,11 @@
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.4.1'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id("java")
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
 }
 
-group = 'com.assessment'
-version = '0.0.1-SNAPSHOT'
+group = "com.assessment"
+version = "0.0.1-SNAPSHOT"
 
 java {
     toolchain {
@@ -24,14 +24,19 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'io.projectreactor:reactor-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation(project(":common"))
+
+    implementation("org.springframework.boot:spring-boot-starter-webflux:${libs.versions.webflux.get()}")
+    implementation("org.projectlombok:lombok:${libs.versions.lombok.get()}")
+
+    annotationProcessor("org.projectlombok:lombok:${libs.versions.lombok.get()}")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test:${libs.versions.spring.boot.get()}")
+    testImplementation("io.projectreactor:reactor-test:${libs.versions.reactor.get()}")
+
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:${libs.versions.junit.platform.get()}")
 }
 
-tasks.named('test') {
+tasks.named("test") {
     useJUnitPlatform()
 }
