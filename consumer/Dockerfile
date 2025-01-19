@@ -6,7 +6,7 @@ COPY settings.gradle ./
 COPY common common/
 COPY consumer consumer/
 
-RUN gradle :producer:build --no-daemon
+RUN gradle :consumer:build --no-daemon
 
 FROM openjdk:21-slim
 WORKDIR /consumer
