@@ -3,8 +3,8 @@ version: '3.8'
 services:
   producer:
     build:
-      context: ./producer
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./producer/Dockerfile
     ports:
       - "8080:8080"
     networks:
@@ -19,8 +19,8 @@ services:
 
   consumer:
     build:
-      context: ./consumer
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./consumer/Dockerfile
     ports:
       - "8081:8081"
     networks:
