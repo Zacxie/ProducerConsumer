@@ -21,4 +21,9 @@ public class MessageController {
     public Flux<Message> getMessageStream() {
         return messageService.getMessageStream();
     }
+
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
+    }
 }
