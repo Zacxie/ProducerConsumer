@@ -1,6 +1,11 @@
 # Spring Boot Project
 
-This repository contains a Spring Boot application with producer and consumer components.
+This monorepo contains two independent modules built with Spring Boot and Project Reactor (Flux):
+
+- Producer: A Spring Boot application that generates and sends messages
+- Consumer: A Spring Boot application that subscribes to messages from the Producer and saves them to /tmp/consumer within its Docker container
+
+Both modules are built using Gradle and leverage Spring WebFlux for concurrent processing.
 
 ## Requirements
 
